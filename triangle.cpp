@@ -28,8 +28,8 @@ void Triangle::move(double dx, double dy)
     c.move(dx, dy);
 }
 
-double Triangle::getSurface() {
-
+double Triangle::getSurface() 
+{
     double ab = sqrt(pow(b.getX() - a.getX(), 2) + pow(b.getY() - a.getY(), 2));
     double bc = sqrt(pow(c.getX() - b.getX(), 2) + pow(c.getY() - b.getY(), 2));
     double ca = sqrt(pow(a.getX() - c.getX(), 2) + pow(a.getY() - c.getY(), 2));
@@ -39,9 +39,19 @@ double Triangle::getSurface() {
     return sqrt(s * (s - ab) * (s - bc) * (s - ca));
 }
 
-string Triangle::toString() {
+string Triangle::toString() 
+{
     ostringstream oss;
     oss << fixed << setprecision(1);
     oss << "Triangle(" << a.toString() << ", " << b.toString() << ", " << c.toString() << ")";
     return oss.str();
+}
+
+bool Triangle::equals(Figure* other) 
+{
+    Triangle* otherTriangle = dynamic_cast<Triangle*>(other);
+    if (otherTriangle == nullptr) {
+        return false;
+    }
+    return (a->equals(otherTriangle->a) && b->equals(otherTriangle->b) && c->equals(otherTriangle->c));
 }
