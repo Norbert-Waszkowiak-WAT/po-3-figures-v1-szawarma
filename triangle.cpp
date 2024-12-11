@@ -46,12 +46,3 @@ string Triangle::toString()
     oss << "Triangle(" << a.toString() << ", " << b.toString() << ", " << c.toString() << ")";
     return oss.str();
 };
-
-bool Triangle::equals(Figure* other) 
-{
-    Triangle* otherTriangle = dynamic_cast<Triangle*>(other);
-    if (otherTriangle == nullptr) {
-        return false;
-    }
-    return (a->equals(otherTriangle->a) && b->equals(otherTriangle->b) && c->equals(otherTriangle->c));
-};
