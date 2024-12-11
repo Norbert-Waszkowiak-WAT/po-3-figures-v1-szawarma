@@ -5,28 +5,28 @@
 
 using namespace std;
 
-Triangle::Triangle(Point a, Point b, Point c) : a(a), b(b), c(c) {}
+Triangle::Triangle(Point a, Point b, Point c) : a(a), b(b), c(c) {};
 
-Triangle::Triangle(const Triangle &other) : a(other.a), b(other.b), c(other.c) {}
+Triangle::Triangle(const Triangle &other) : a(other.a), b(other.b), c(other.c) {};
 
 bool Triangle::equals(const Triangle &other) 
 {
     return a.equals(other.a) && b.equals(other.b) && c.equals(other.c);
-}
+};
 
 void Triangle::flip() 
 {
     a.flip();
     b.flip();
     c.flip();
-}
+};
 
 void Triangle::move(double dx, double dy) 
 {
     a.move(dx, dy);
     b.move(dx, dy);
     c.move(dx, dy);
-}
+};
 
 double Triangle::getSurface() 
 {
@@ -37,7 +37,7 @@ double Triangle::getSurface()
     double s = (ab + bc + ca) / 2;
 
     return sqrt(s * (s - ab) * (s - bc) * (s - ca));
-}
+};
 
 string Triangle::toString() 
 {
@@ -45,7 +45,7 @@ string Triangle::toString()
     oss << fixed << setprecision(1);
     oss << "Triangle(" << a.toString() << ", " << b.toString() << ", " << c.toString() << ")";
     return oss.str();
-}
+};
 
 bool Triangle::equals(Figure* other) 
 {
@@ -54,4 +54,4 @@ bool Triangle::equals(Figure* other)
         return false;
     }
     return (a->equals(otherTriangle->a) && b->equals(otherTriangle->b) && c->equals(otherTriangle->c));
-}
+};
